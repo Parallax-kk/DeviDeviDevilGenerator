@@ -1,7 +1,7 @@
 from janome.tokenizer import Tokenizer
 import json
 
-sjis = open('Data/Yogensho.txt', 'rb').read()
+sjis = open('Data/AromaYogensho.txt', 'rb').read()
 text = sjis.decode('utf_8')
 
 t = Tokenizer()
