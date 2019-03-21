@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
+# -*- coding: Shift-JIS -*-
 import json
 dic = open("markov-blog.json" , "r")
 dic = json.load(dic)
-
+W
 tweets_list = []
 import random
 def word_choice(sel):

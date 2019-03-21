@@ -1,8 +1,9 @@
+# -*- coding: Shift-JIS -*-
 from janome.tokenizer import Tokenizer
 import json
 
 sjis = open('Data/AromaYogensho.txt', 'rb').read()
-text = sjis.decode('utf_8')
+text = sjis.decode('Shift-JIS')
 
 t = Tokenizer()
 words = t.tokenize(text)
@@ -30,4 +31,4 @@ def set_word3(dic, s3):
     dic[w1][w2][w3] += 1
 
 dic = make_dic(words)
-json.dump(dic, open("markov-blog.json", "w", encoding="utf-8"))
+json.dump(dic, open("markov-blog.json", "w", encoding="Shift-JIS"))
