@@ -2,7 +2,7 @@
 import json
 dic = open("markov-blog.json" , "r")
 dic = json.load(dic)
-W
+
 tweets_list = []
 import random
 def word_choice(sel):
@@ -21,7 +21,7 @@ def make_sentence(dic):
     while True:
         w3 = word_choice(dic[w1][w2])
         ret.append(w3)
-        if w3 == ".": break
+        if w3 == "ÅB" or  w3 == ".": break
         w1, w2 = w2, w3
     tweets_list.append(ret)
     return "".join(ret)
