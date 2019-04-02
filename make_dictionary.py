@@ -1,12 +1,19 @@
-# -*- coding: Shift-JIS -*-
+# -*- coding: utf-8 -*-
 from janome.tokenizer import Tokenizer
 import json
 
 sjis = open('Data/AromaYogensho.txt', 'rb').read()
-text = sjis.decode('Shift-JIS')
+text = sjis.decode('utf-8')
 
-t = Tokenizer()
+t = Tokenizer("Data/AromaDictionary.csv", udic_enc="utf8")
 words = t.tokenize(text)
+
+f = open('Morpheme.txt', 'w')
+for token in t.tokenize(text):
+    print(token)
+    f.write(str(token)+"\n")
+
+f.close()
 
 def make_dic(words):
     tmp = ["@"]
@@ -18,7 +25,7 @@ def make_dic(words):
         if len(tmp) < 3: continue
         if len(tmp) > 3: tmp = tmp[1:]
         set_word3(dic, tmp)
-        if word == "ÅB" or word == ".":
+        if word == "„ÄÇ" or word == ".":
             tmp = ["@"]
             continue
     return dic
@@ -31,4 +38,4 @@ def set_word3(dic, s3):
     dic[w1][w2][w3] += 1
 
 dic = make_dic(words)
-json.dump(dic, open("markov-blog.json", "w", encoding="Shift-JIS"))
+json.dump(dic, open("markov-blog.json", "w", encoding="utf-8"))
