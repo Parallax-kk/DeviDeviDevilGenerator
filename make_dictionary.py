@@ -5,7 +5,7 @@ import json
 sjis = open('Data/AromaYogensho.txt', 'rb').read()
 text = sjis.decode('utf-8')
 
-t = Tokenizer("Data/AromaDictionary.csv", udic_enc="utf8")
+t = Tokenizer('Data/AromaDictionary.csv', udic_enc="utf-8")
 words = t.tokenize(text)
 
 f = open('Morpheme.txt', 'w')
